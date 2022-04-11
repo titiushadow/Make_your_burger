@@ -79,19 +79,7 @@
   ],
   "burgers": [
     {
-      "nome": "Paulo Felipe",
-      "carne": "Alcatra",
-      "pao": "Italiano Branco",
-      "opcionais": [
-        "Bacon",
-        "Cheddar",
-        "Tomate"
-      ],
-      "status": "Finalizado",
-      "id": 1
-    },
-    {
-      "nome": "Victor Soles",
+      "nome": "Luiz Henrique",
       "carne": "Picanha",
       "pao": "3 Queijos",
       "opcionais": [
@@ -99,8 +87,8 @@
         "Cheddar",
         "Tomate"
       ],
-      "status": "Em produção",
-      "id": 2
+      "status": "Finalizado",
+      "id": 1
     }
   ]
 }
