@@ -1,6 +1,7 @@
 <template>
   <div id="burger-table" v-if="burgers">
     <div>
+       <Message :msg="msg" v-show="msg" />
       <div id="burger-table-heading">
         <div class="order-id">#:</div>
         <div>Cliente:</div>
@@ -36,15 +37,21 @@
     <h2>Não há pedidos no momento!</h2>
   </div>
 </template>
+
 <script>
+import Message from './Message.vue';
   export default {
     name: "Dashboard",
     data() {
       return {
         burgers: null,
         burger_id: null,
-        status: []
+        status: [],
+        msg: null
       }
+    },
+    components: {
+      Message
     },
     methods: {
       async getPedidos() {
@@ -65,7 +72,16 @@
         const req = await fetch(`http://localhost:3000/burgers/${id}`, {
           method: "DELETE"
         });
+
         const res = await req.json()
+
+      //Colocar uma msg de sistema
+      this.msg = "Pedido removido com sucesso!"
+
+      // clear message
+      setTimeout(() => this.msg = "", 3000)
+
+
         this.getPedidos()
       },
       
@@ -77,8 +93,17 @@
           headers: { "Content-Type" : "application/json" },
           body: dataJson
         });
-        const res = await req.json()
-        console.log(res)
+
+      const res = await req.json()
+
+      //Colocar uma msg de sistema
+      this.msg = `O pedido ${res.id} foi atualizado para ${res.status}!`;
+
+      // clear message
+      setTimeout(() => this.msg = "", 3000)
+
+
+        console.log(res);
       }
     },
     mounted () {
@@ -136,5 +161,4 @@
     background-color: transparent;
     color: #222;
   }
-  
 </style>
