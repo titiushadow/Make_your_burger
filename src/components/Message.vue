@@ -13,7 +13,7 @@
   }
 </script>
 
-<style scoped>
+<style>
   .message-container {
     color: #004085;
     background-color: #cce5ff;
